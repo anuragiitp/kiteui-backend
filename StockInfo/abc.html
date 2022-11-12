@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MSE Demo</title>
+</head>
+<body>
+  <h1>MSE Demo</h1>
+  <div>
+ <video width="100%" height="100%" controls></video>
+  </div>
+
+  <script type="text/javascript">
+   
+   //www.tutorialspots.com
+
+var FILE = 'http://localhost:9000/file_example_MP4_480_1_5MG.mp4';
+var filesize = 0;
+var filetype = 'video/mp4; codecs="avc1.42C01E, mp4a.40.2'
+var fileduration = 0
+var chunksize = 262144
+var totalSegments = 0
+var video = document.querySelector('video');
+var currentChunk = 0
+var maxBufferLength = 120
+var tt, sourceBuffer
+window.MediaSource = window.MediaSource || window.WebKitMediaSource;
+if (!!!window.MediaSource) {
+  alert('MediaSource API is not available');
+}
+
+var mediaSource = new MediaSource();
+video.src = window.URL.createObjectURL(mediaSource);
+
+video.addEventListener('loadedmetadata', function(a) {
+  console.log(a)
+  fileduration = a.target.duration
+})
+ 
+function callback(e) {
+  sourceBuffer = mediaSource.addSourceBuffer(filetype);
+
+  var d = false,
+    count = 0;
+  (function readChunk_() {
+
+    GET(FILE, function(uInt8Array) {
+      var file = new Blob([uInt8Array], {
+        type: filetype
+      });
+
+      var reader = new FileReader();
+ 
+      reader.onload = function(e) {
+        
+        if (count++ == 0) {
+        
+          sourceBuffer.addEventListener('updateend', function(_) {
+ 
+            var ranges = sourceBuffer.buffered;
+            console.log("CURRENT TIME: " + video.currentTime);
+            console.log("BUFFERED RANGES: " + ranges.length);
+            tt = 0
+            for (var i = 0, len = ranges.length; i < len; i += 1) {
+              console.log("RANGE: " + ranges.start(i) + " - " + ranges.end(i));
+              tt = Math.max(tt, ranges.end(i))
+            }
+            tt = tt - video.currentTime
+
+            if (file.size != chunksize) {
+              mediaSource.endOfStream();              
+            } else {
+              if (video.paused) {
+                video.play();  
+              }
+
+              if (tt > maxBufferLength) {
+                var __ = setInterval(function() {
+                  var ranges = sourceBuffer.buffered;
+
+                  tt = 0
+                  for (var i = 0, len = ranges.length; i < len; i += 1) {
+                    tt = Math.max(tt, ranges.end(i))
+                  }
+                  tt = tt - video.currentTime
+
+                  if (tt <= maxBufferLength) {
+                    clearInterval(__)
+                    readChunk_();
+                  }
+                }, 500)
+              } else
+                readChunk_();
+            }
+          });
+        }
+
+        sourceBuffer.appendBuffer(new Uint8Array(e.target.result));
+
+
+      };
+      reader.readAsArrayBuffer(file);
+    })
+
+  })()
+}
+
+
+mediaSource.addEventListener('sourceopen', callback, false);
+mediaSource.addEventListener('webkitsourceopen', callback, false);
+
+
+function GET(url, callback) {
+
+  if (filesize && (currentChunk) * chunksize > filesize) return
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.responseType = 'arraybuffer';
+
+  xhr.setRequestHeader('Range', 'bytes=' + (currentChunk) * chunksize + '-' + ((currentChunk + 1) * chunksize - 1));
+  currentChunk++
+  xhr.send();
+
+  xhr.onload = function(e) {
+
+    if (xhr.status != 200 && xhr.status != 206) {
+      alert("Unexpected status code " + xhr.status + " for " + url);
+      return false;
+    }
+     
+    var range = xhr.getResponseHeader('Content-Range')
+    filesize = parseInt(range.match(/\/(\d+)$/)[1])
+    totalSegments = Math.ceil(filesize / chunksize) - 1
+     
+    callback(new Uint8Array(xhr.response));
+  };
+}
+
+  </script>
+</body>
+</html>

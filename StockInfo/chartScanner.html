@@ -1,0 +1,822 @@
+<html><head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+
+function changeGraph(id){$('img').show();$('object').hide();$('.chatlink').hide();document.getElementById(id+'_i').style.display = 'none';document.getElementById(id+'_f').style.display = 'block';document.getElementById(id+'_l').style.display = 'block';}
+
+$( document ).ready(function() {
+  $('img').bind('click', function() {
+	  var id = $(this).attr('id').split('_')[0];  
+	  changeGraph(id);
+  });
+
+  
+ $("div").each(function(i) {
+		
+		$(this).attr('id',i);
+		$(this).find("img").attr('id',i+'_i');
+		$(this).find("object").attr('id',i+'_f');
+		$(this).find("a").attr('id',i+'_l');
+	if(i!=0){
+		var text=$(this).find("img").attr('src').split('https://chart.finance.yahoo.com/t?s=')[1].split('&')[0];
+
+		$('#box').append($('<option>', {
+			value: i,
+			text: text
+		}));	
+	}
+
+ });
+  
+  
+$('#box').change(function () {
+	$('object').hide();
+	$('.chatlink').hide();
+     var optionSelected = $(this).find("option:selected");
+     var valueSelected  = optionSelected.val();
+     var textSelected   = optionSelected.text();
+	 //push to front
+	 
+	 $('#'+valueSelected).prependTo('#gsection');
+	 
+ });
+
+
+ 
+});
+
+
+	
+</script>
+<style>
+div {
+    float: left;
+	margin: 20px;
+}
+
+button {
+    display: none;
+}
+
+.center {
+    margin-left: 35%;
+    width: 20%;
+    border:2px solid #8AC007;
+    padding: 2px;
+}
+.chatlink{
+ display: none;
+}
+</style>
+</head><body>
+
+
+<select id='box' class="center"></select>
+
+<br>
+<start id='gsection'></start>
+
+
+<div>
+	<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3D%5ENSEI%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+	<img  style='display:block' src='https://chart.finance.yahoo.com/t?s=%5eNSEI&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+	<a class='chatlink' href="#" target="_blank">chat</a>
+</div>
+
+
+<div>
+	<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DFEDERALBN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+	<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=FEDERALBN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+	<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/federalbank/comments/6423" target="_blank">chat</a>
+</div>
+
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DKEI.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=KEI.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/keiindustries/comments/243673" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSUPPETRO.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SUPPETRO.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/supremepetro/comments/11361" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DJINDALSTEL.BO%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=JINDALSTEL.BO&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/jindalsteel/comments/43561" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DDISHTV.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=DISHTV.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/dishtv/comments/246749" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTRITURBINE.BO%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TRITURBINE.BO&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/triveniturbine/comments/509392" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DPANACEABI.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=PANACEABI.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/panaceabiotec/comments/17221" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSYNDIBANK.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SYNDIBANK.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/syndicatebank/comments/1604" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DACE.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ACE.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/actionconst/comments/246863" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGREAVESCO.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GREAVESCO.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/greavescotton/comments/41888" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSMARTLINK.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SMARTLINK.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/smartlinknet/comments/1085" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DFORTIS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=FORTIS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/fortishealth/comments/246745" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSBIN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SBIN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/sbi/comments/406" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DVIMTALABS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=VIMTALABS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/vimtalabs/comments/9701" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DKEC-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=KEC-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/kecintl/comments/1201" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGEOMETRIC.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GEOMETRIC.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/geometric/comments/5122" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DALBK.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ALBK.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/allahabadbank/comments/8661" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DPRAJIND.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=PRAJIND.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/prajindustries/comments/2742" target="_blank">chat</a>
+</div>
+
+<div>
+<object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DEXIDEIND.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=EXIDEIND.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/exideind/comments/10023" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DCCL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=CCL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/cclproducts/comments/14744" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DADANIPOWER.BO%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ADANIPOWER.BO&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/adanipower/comments/509081" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DESSELPACK.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ESSELPACK.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/esselpropack/comments/404" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DREDINGTON.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=REDINGTON.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/redington/comments/246680" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DVEDL-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=VEDL-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/vedanta/comments/5141" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DANDHRABAN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ANDHRABAN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/vedanta/comments/5141" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTAKE.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TAKE.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/takesolutions/comments/246792" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DHINDZINC.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=HINDZINC.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/hindzinc/comments/5963" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DPOLARIS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=POLARIS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/polarisconsult/comments/407" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DHDIL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=HDIL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/hdil/comments/246778" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DINTELLECT-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=INTELLECT-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/intellectdesig/comments/509804" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSURYAROSN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SURYAROSN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/suryaroshni/comments/67681" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DHINDALCO.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=HINDALCO.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/hindalco/comments/6261" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DNTPC.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=NTPC.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/ntpc/comments/164775" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DNDL.BO%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=NDL.BO&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/nandandenim/comments/244292" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSONASTEER.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SONASTEER.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/sonakoyostee/comments/36041" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DASHOKLEY.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ASHOKLEY.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/ashokleyland/comments/9001" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DBANKBAROD.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=BANKBAROD.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/bankbaroda/comments/261" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DRUSHIL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=RUSHIL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/rushildecor/comments/509253" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DCROMPGREA.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=CROMPGREA.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/cromptongreave/comments/2061" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DDLF.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=DLF.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/dlf/comments/246763" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DIDFC.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=IDFC.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/idfc/comments/246146" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DNIITLTD.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=NIITLTD.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/niit/comments/1961" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSINTEX.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SINTEX.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/sintexind/comments/79610" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DCOSMOFILM.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=COSMOFILM.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/cosmofilms/comments/3261" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DKSL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=KSL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/kalyanisteels/comments/21182" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DJKTYRE.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=JKTYRE.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/jktyreind/comments/8382" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGABRIEL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GABRIEL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/gabrielindia/comments/6705" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DROLTA.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ROLTA.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/rolta/comments/2045" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTIRUMALCH.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TIRUMALCH.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/thirumalaichem/comments/30682" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DVAKRANGEE-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=VAKRANGEE-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/vakrangee/comments/13264" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DJBMA-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=JBMA-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/jbmauto/comments/243555" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DORIENTBANK-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ORIENTBANK-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/orientalbank/comments/6841" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DAMTEKAUTO.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=AMTEKAUTO.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/amtekauto/comments/47482" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTBZ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TBZ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/tribhovandas/comments/509440" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DDEN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=DEN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/tribhovandas/comments/509440" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DPOWERGRID.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=POWERGRID.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/powergridcorp/comments/246800" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGRANULES.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GRANULES.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/granulesindia/comments/40061" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DAPOLLOTYRE-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=APOLLOTYRE-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/apollotyres/comments/9282" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DHIMATSEIDE.BO%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=HIMATSEIDE.BO&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/himatsingkasei/comments/5543" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DCAMLINFINE-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=CAMLINFINE-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/camlinfine/comments/246744" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSTCINDIA.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=STCINDIA.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/stcindia/comments/2801" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSNOWMAN-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SNOWMAN-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/snowmanlogist/comments/509743" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DUNIONBANK.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=UNIONBANK.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/unionbank/comments/2644" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DFRL-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=FRL-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/futureretail/comments/30004" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DPNB-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=PNB-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/pnb/comments/684" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DIDEA.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=IDEA.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/ideacellular/comments/246717" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DCAIRN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=CAIRN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/cairnindia/comments/246657" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DADLABS-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ADLABS-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/adlabsent/comments/509847" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DEDELWEISS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=EDELWEISS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/adlabsent/comments/509847" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DOMKARCHEM.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=OMKARCHEM.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/omkarspecial/comments/509231" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DELECON-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ELECON-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/eleconeng/comments/43324" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DCENTENKA.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=CENTENKA.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/centuryenka/comments/41021" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DPHILIPCAR.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=PHILIPCAR.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/phillipscarbon/comments/42582" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSUBROS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SUBROS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/subros/comments/18821" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DDISHMAN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=DISHMAN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/dishmanpharma/comments/160981" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DONMOBILE.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ONMOBILE.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/onmobileglobal/comments/246844" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DUFLEX.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=UFLEX.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/uflex/comments/44203" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DINDIANB.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=INDIANB.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/indianbank/comments/246711" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DRAMCOIND.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=RAMCOIND.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/ramcoind/comments/11621" target="_blank">chat</a>
+</div>
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DKPIT.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=KPIT.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/kpittech/comments/69010" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DNMDC.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=NMDC.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN' border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/nmdc/comments/68630" target="_blank">chat</a>
+</div>
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DMAGMA.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=MAGMA.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/magmafincorp/comments/24741" target="_blank">chat</a>
+</div>
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGOODLUCK-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GOODLUCK-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/goodlucksteel/comments/243139" target="_blank">chat</a>
+</div>
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DNDTV.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=NDTV.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/ndtv/comments/156055" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSUZLON.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SUZLON.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/suzlonenergy/comments/246287" target="_blank">chat</a>
+</div>
+
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTRIDENT.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TRIDENT.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/trident/comments/9004" target="_blank">chat</a>
+</div>
+
+
+
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DKRBL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=KRBL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/krbl/comments/65901" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DBALAJITEL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=BALAJITEL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/balajitelefilm/comments/321" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTATAMETAL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TATAMETAL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/tatametaliks/comments/12441" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSCHNEIDER.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SCHNEIDER.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/schneiderinfra/comments/509431" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSCI.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SCI.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/shippingcorp/comments/1608" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSONATSOFTW-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SONATSOFTW-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/sonata/comments/8241" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DVENUSREM.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=VENUSREM.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/venusremedies/comments/82510" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DPITTILAM.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=PITTILAM.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/pittilaminatio/comments/61681" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DRADICO.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=RADICO.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/radicokhaitan/comments/244777" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DBGRENERGY.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=BGRENERGY.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/bgrenergy/comments/246827" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DKOPRAN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=KOPRAN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/kopran/comments/11441" target="_blank">chat</a>
+</div>
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DMANINDS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=MANINDS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/manindustries/comments/21184" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DINDIAGLYC.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=INDIAGLYC.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/indiaglycols/comments/2084" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DMARKSANS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=MARKSANS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/marksanspharma/comments/246267" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DVIPIND.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=VIPIND.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/vipindustries/comments/1542" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DFLFL-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=FLFL-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/futurelife/comments/509622" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGOKEX.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GOKEX.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/gokaldasexport/comments/243119" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGSFC.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GSFC.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/gsfc/comments/9482" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DJINDALSAW-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=JINDALSAW-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/jindalsaw/comments/2649" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DJSWENERGY.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=JSWENERGY.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/jswenergy/comments/509101" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DWSTCSTPAPR-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=WSTCSTPAPR-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/westcoastpapr/comments/44121" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DMIRZAINT.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=MIRZAINT.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/mirzaintl/comments/4521" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DKOKUYOCML.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=KOKUYOCML.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/kokuyocamlin/comments/6443" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTWL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TWL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/titagarhwagons/comments/246862" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DMETALFORGE-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=METALFORGE-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/metalystforgin/comments/14381" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGSPL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GSPL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/gsplindia/comments/243019" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DWELCORP.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=WELCORP.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/welspuncorp/comments/10172" target="_blank">chat</a>
+</div>
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DNAHARSPIN.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=NAHARSPIN.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/naharspinning/comments/8462" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTATAGLOBAL-EQ.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TATAGLOBAL-EQ.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/tataglobalbev/comments/3225" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DSUPRAJIT.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=SUPRAJIT.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/suprajiteng/comments/39346" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DDEEPIND.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=DEEPIND.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/deepindustries/comments/246554" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTORNTPOWE.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TORNTPOWE.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/torrentpower/comments/246643" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DBLISSGVS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=BLISSGVS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/blissgvs/comments/136897" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DGATI.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=GATI.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/gati/comments/39888" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTNPL.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TNPL.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/tamilnewsprint/comments/2941" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DMCLEODRUS.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=MCLEODRUS.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/mcleod/comments/244118" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DENGINERSI.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ENGINERSI.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/engineersind/comments/4982" target="_blank">chat</a>
+</div>
+
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTHOMASCOO.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=THOMASCOO.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/thomascook/comments/31761" target="_blank">chat</a>
+</div>
+
+
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DTVTODAY.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=TVTODAY.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/tvtodaynetwork/comments/121415" target="_blank">chat</a>
+</div>
+
+
+
+<div><object type='application/x-shockwave-flash' style='display:none' data='https://s.yimg.com/bm/lib/fi/common/p/d/static/swf/2.0.356979/2.0.0/en-IN/largechart.swf' width='1500' height='500' style='visibility: visible; height: 535px;'><param name='allowscriptaccess' value='always'><param name='wmode' value='opaque'><param name='flashvars' value='sigDevEnabled=false&amp;changeSymbolEnabled=false&amp;state=symbol%3DABGSHIP.NS%3Brange%3D1d%3Bcompare%3D%3Bindicator%3Dvolume%3Bcharttype%3Darea%3Bcrosshair%3Don%3Bohlcvalues%3D0%3Blogscale%3Doff%3Bsource%3D%3B'></object>
+<img  style='display:block'  src='https://chart.finance.yahoo.com/t?s=ABGSHIP.NS&amp;t=1d&amp;q=l&amp;l=on&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-IN&amp;region=IN'  border='0' alt=''>
+<a class='chatlink' href="http://mmb.moneycontrol.com/stock-message-forum/abgshipyard/comments/246301" target="_blank">chat</a>
+</div>
+
+
+
+</body></html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/anurkuma/OneDrive - Adobe/DRIVE D/workspace/StockInfo/lib/commons-lang3-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/anurkuma/OneDrive - Adobe/DRIVE D/workspace/StockInfo/lib/jansi-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/anurkuma/OneDrive - Adobe/DRIVE D/workspace/StockInfo/lib/jaunt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/anurkuma/OneDrive - Adobe/DRIVE D/workspace/StockInfo/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/anurkuma/OneDrive - Adobe/DRIVE D/workspace/StockInfo/lib/tyrus-standalone-client-1.15.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

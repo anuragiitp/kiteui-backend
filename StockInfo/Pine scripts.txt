@@ -1,0 +1,10 @@
+//@version=4
+study(title = "Advance Decline Ratio", shorttitle="ADR")
+ratio(t1, t2 ,t3 ,t4 ,t5 ,source) =>
+    s1 = security(t1, timeframe.period, source)
+    s2 = security(t2, timeframe.period, source)
+    s3 = security(t3, timeframe.period, source)
+    s4 = security(t4, timeframe.period, source)
+    s5 = security(t5, timeframe.period, source)
+    s1 + s2 + s3 +s4 +s5
+plot(ratio("NSE:RELIANCE", "NSE:DABUR","NSE:CUPID","NSE:HDFC","NSE:DLF", close))

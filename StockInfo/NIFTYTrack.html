@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NIFTY</title>
+    <style>
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+}
+	
+#alertData,#indexData ,#gainersData,#losersData,#holdingData {
+  font-family: serif;
+  border-collapse: collapse;
+  width:100%;
+}
+.tableContainer{
+	max-height: 100vh;
+    display: inline;
+    overflow: scroll;
+    float: left;
+	width: 20%;
+	margin-bottom: 20px;
+	margin-left: 10px;	
+}
+
+   
+ td,  th {
+  border: 1px solid #ddd;
+  padding: 3px;
+}
+
+ tr:nth-child(even){background-color: #f2f2f2;}
+ tr:nth-child(odd){background-color: 'white';}
+
+ tr:hover {background-color: #ddd;max-height:20px;}
+
+ th {
+  text-align: left;
+  color: white;
+}
+td{
+text-align: right;
+}
+
+td:first-child { text-align: left; font-size:14px; }
+
+#indexData #nifty ,#indexData #nifty_ch{
+  font-size:14px;
+  font-weight:bold;
+}
+
+#holdingData #holdQty{
+  font-size:11px;
+}
+
+#holdingData #holdValue,#holdPL{
+  font-size:13px;
+  font-weight:bold;
+}
+
+#alertData th,#indexData th,#holdingData th{
+  background-color: #545353;
+}
+#gainersData th{
+  background-color:#96e096; 
+}
+#losersData th{
+  background-color:#e86666;
+}
+
+
+tr.newSymbol{
+    border-left: 5px solid red;
+}
+
+#stockInfo {
+    position:fixed;
+    right:10px;
+    top:5px;
+    background-color: #f2f2f2;
+}
+
+span.title {
+    font-weight: bold;
+	font-size: 12px;
+}
+
+span.info {
+    font-size: 15px;
+    color: gray;
+    padding-left: 10px;
+    width: 31px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inforow {
+    padding-left: 5px;
+}
+
+
+#feed-status{
+width:100%;
+	height:10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
+  -webkit-animation: blinkRed 0.5s infinite;
+  -moz-animation: blinkRed 0.5s infinite;
+  -ms-animation: blinkRed 0.5s infinite;
+  -o-animation: blinkRed 0.5s infinite;
+  animation: blinkRed 0.5s infinite;
+  margin-bottom: 10px;
+}
+
+
+@-webkit-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}
+    to { background-color: #F00; }
+}
+@-moz-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}
+    to { background-color: #F00; }
+}
+@-ms-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}
+    to { background-color: #F00; }
+}
+@-o-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}
+    to { background-color: #F00; }
+}
+@keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}
+    to { background-color: #F00; }
+}
+
+    </style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>   
+	<div id='feed-status'></div>
+    <div class="tableContainer alert"><table id="alertData"></table></div>	
+	<div class="tableContainer loser"><table id="losersData"></table>	</div>	
+	<div class="tableContainer gainers"><table id="gainersData"></table></div>	
+	<div id = "stockInfo" ondblclick="$('#stockInfo').hide();"></div>	
+	
+</body>
+
+<script>
+
+		var URLMap = undefined;
+		$.getJSON("URLMap.json?v="+(new Date().getTime()), function(obj) {
+			URLMap = obj;
+		});
+
+        // EXTRACT VALUE FOR HTML HEADER. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        var col = ["Name","Chg. %","Last","High","Low","Open"];
+
+
+        // CREATE DYNAMIC TABLE.
+        var alertData = document.getElementById("alertData");
+        var gainersData = document.getElementById("gainersData");
+        var losersData = document.getElementById("losersData");
+		var indexData = document.getElementById("indexData");
+		var holdingData = document.getElementById("holdingData");
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = alertData.insertRow(-1);                   // TABLE ROW.
+        for (var i = 0; i < 3; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+
+        tr = gainersData.insertRow(-1);                   // TABLE ROW.
+        for (var i = 0; i < 3; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+		
+		
+        tr = losersData.insertRow(-1);                   // TABLE ROW.
+        for (var i = 0; i < 3; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }		
+		
+		
+		var dsplayCOl = [0,13,3];		
+		setInterval(CreateTableFromJSON, 3000);	
+	
+	var allSymbols = new Set(); 
+	var newSymbolsAdded = new Object(); 
+	var priceMap = new Object(); 
+
+	var filterSymbols = new Object(); 
+		
+    function CreateTableFromJSON() {
+	
+		$.getJSON("filter.json?v="+(new Date().getTime()), function(obj) {
+			filterSymbols=obj;		
+		});
+		
+		$.getJSON("NIFTYTrack.json?v="+(new Date().getTime()), function(obj) {
+			
+			var servTime = obj.time;
+			var date = new Date();
+			var clientTime = date.getHours()*60+date.getMinutes()
+			if(Math.abs(clientTime - servTime) > 5 ){
+				document.getElementById("feed-status").style.display = "block";
+			}else{
+				document.getElementById("feed-status").style.display = "none"
+			}
+			
+			
+			for(var row in  obj.alerts){
+				if(!allSymbols.has(obj.alerts[row][1])){
+					newSymbolsAdded[obj.alerts[row][1]]=clientTime;
+				}
+				allSymbols.add(obj.alerts[row][1]);
+				priceMap[obj.alerts[row][1]]=obj.alerts[row];
+			}
+			for(var row in obj.gainers){
+				if(!allSymbols.has(obj.gainers[row][1])){
+					newSymbolsAdded[obj.gainers[row][1]]=clientTime;
+				}
+				allSymbols.add(obj.gainers[row][1]);
+				priceMap[obj.gainers[row][1]]=obj.gainers[row];
+			}
+			for(var row in obj.losers){
+				if(!allSymbols.has(obj.losers[row][1])){
+					newSymbolsAdded[obj.losers[row][1]]=clientTime;
+				}
+				allSymbols.add(obj.losers[row][1]);
+				priceMap[obj.losers[row][1]]=obj.losers[row];
+			}			
+			
+			for (var key in newSymbolsAdded) {
+				if (newSymbolsAdded.hasOwnProperty(key)) {
+					//Now, object[key] is the current value
+					if (clientTime - newSymbolsAdded[key] > 10)
+						delete newSymbolsAdded[key];
+			}	}
+
+			
+			
+			
+			
+			var alertObj = obj.alerts;
+			$("#alertData").find("tr:not(:first)").remove();		 
+			// ADD JSON DATA TO THE TABLE AS ROWS.
+			for (var i = alertObj.length -1; i >=0 ; i--) {
+				if(filterSymbols[alertObj[i][1]])continue;
+				tr = alertData.insertRow(-1);	
+				tr.onclick=onRowClick;		
+				tr.rowid=alertObj[i][1];				
+				for (var j in dsplayCOl) {
+					var tabCell = tr.insertCell(-1);
+					if(dsplayCOl[j] == 13){
+						var cellV =  alertObj[i][dsplayCOl[j]];					
+						var change = Number(cellV.split(".")[0]);
+
+						if(cellV.startsWith("-")){
+							if(change < -4.5){
+								tabCell.style.color='red';
+							}else{
+								tabCell.style.color='#f18d8d';
+							}
+						}else{
+							if(change > 4.5){
+								tabCell.style.color='green';
+							}else{
+								tabCell.style.color='#b6e0b6';
+							}					
+						
+						}
+					}
+					tabCell.innerHTML = alertObj[i][dsplayCOl[j]];
+					
+					if(j==0 && newSymbolsAdded[alertObj[i][1]]!=undefined){
+						tr.classList.add("newSymbol");
+					}
+				}
+			}	
+			
+			
+									
+			var gainersObj = obj.gainers;
+			$("#gainersData").find("tr:not(:first)").remove();		 
+			// ADD JSON DATA TO THE TABLE AS ROWS.
+			for (var i = 0; i < gainersObj.length; i++) {
+				if(filterSymbols[gainersObj[i][1]])continue;
+				tr = gainersData.insertRow(-1);	
+				tr.onclick=onRowClick;		
+				tr.rowid=gainersObj[i][1];					
+				for (var j in dsplayCOl ) {
+					if( j < 3){
+						var tabCell = tr.insertCell(-1);
+						if(dsplayCOl[j] == 13){
+							tabCell.style.color='green';
+						}						
+						tabCell.innerHTML = gainersObj[i][dsplayCOl[j]];					
+					}
+					if(j==0 && newSymbolsAdded[gainersObj[i][1]]!=undefined){
+						tr.classList.add("newSymbol");
+					}
+				}
+			}				
+			
+			
+			var losersObj = obj.losers;
+			$("#losersData").find("tr:not(:first)").remove();		 
+			// ADD JSON DATA TO THE TABLE AS ROWS.
+			for (var i = 0; i < losersObj.length; i++) {
+				if(filterSymbols[losersObj[i][1]])continue;
+				tr = losersData.insertRow(-1);		
+				tr.onclick=onRowClick;		
+				tr.rowid=losersObj[i][1];					
+				for (var j in dsplayCOl ) {
+					if( j < 3){
+						var tabCell = tr.insertCell(-1);
+						if(dsplayCOl[j] == 13){
+							tabCell.style.color='red';
+						}							
+						tabCell.innerHTML = losersObj[i][dsplayCOl[j]];					
+					}
+					if(j==0 && newSymbolsAdded[losersObj[i][1]]!=undefined){
+						tr.classList.add("newSymbol");
+					}
+				}
+			}				
+					
+			
+		});        
+		
+			
+    }
+	
+	
+	var detailColum =["Name","Symbol","Exchange","Last","Bid","Ask","Extended Hours","Extended Hours (%)","Open","Prev.","High","Low","Chg.","Chg. %","Vol.","Next Earnings Date","Time","Market Cap","Revenue","Average Vol. (3m)","EPS","P/E Ratio","Beta","Dividend","Yield","5 Minutes","15 Minutes","30 Minutes","Hourly","5 Hours","Daily","Weekly","Monthly","Daily","1 Week","1 Month","YTD","1 Year","3 Years"];
+	
+	function onRowClick(evt){
+		var rowid= evt.currentTarget.rowid;
+		$("#stockInfo").empty();
+		$("#stockInfo").show();
+		if(priceMap[rowid] != undefined){
+			for(var i=0 ; i< priceMap[rowid].length ; i++ ){
+				$("#stockInfo").append( "<div class='inforow'><span class='title'>"+detailColum[i]+":</span><span class='info'>"+priceMap[rowid][i]+"</span></div>" );
+			}
+			var symbol = priceMap[rowid][0].toLowerCase();
+			var subName = symbol.split(" ");
+		   for(var key in URLMap ){
+				var splitKey = key.split(" ");
+				if( splitKey[0] == subName[0] || splitKey[0] == subName[1] || splitKey[1] == subName[0] || splitKey[0].split(".")[0] == subName[0] ){
+					$("#stockInfo").append( "<div class='inforow'><span class='title'>Screener:</span><span class='info'><a target='_blank' href='https://www.screener.in"+URLMap[key]+"'>"+URLMap[key].split("/")[2]+"</a></span></div>" );
+				}	
+		   }			
+		}
+	}
+	
+	
+</script>
+</html>
