@@ -1,0 +1,40 @@
+[
+  {
+    "creationDate": 1590954310861,
+    "description": "hide graph",
+    "groupId": "",
+    "id": "Script_1590954310861",
+    "isSample": false,
+    "name": "Kite graph script",
+    "objectType": "rule",
+    "pairs": [
+      {
+        "libraries": [],
+        "scripts": [
+          {
+            "codeType": "css",
+            "fileName": "",
+            "loadTime": "beforePageLoad",
+            "type": "code",
+            "value": ".chart-frame{\n  display:none;\n}"
+          },
+          {
+            "codeType": "js",
+            "fileName": "",
+            "loadTime": "afterPageLoad",
+            "type": "code",
+            "value": "setTimeout(function(){document.getElementById('chart-iframe').remove();document.getElementsByClassName('drawer-menu')[0].click();},1000)"
+          }
+        ],
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite.zerodha.com/chart/ext/ciq"
+        }
+      }
+    ],
+    "ruleType": "Script",
+    "status": "Active"
+  }
+]

@@ -1,0 +1,385 @@
+http-server -p 9000 -c-1 -g
+
+
+
+
+
+https://api.smallcase.com/news/getNews?count=5&offset=0&scids[]=SCTR_0004
+https://api.smallcase.com/smallcases/smallcase?scid=CMMO_0001
+https://api.smallcase.com/smallcases/smallcase?scid=SCTR_0004
+https://api.smallcase.com/smallcases/smallcase?scid=WKIMO_0009
+
+
+
+-------------------------------------------------
+Copy locastorage to Clipboard and past it in console
+
+copy('var data = '+JSON.stringify(localStorage)+';Object.keys(data).forEach(function (k){localStorage.setItem(k, data[k]);});');
+
+-------------------------------------
+
+var dataStorage = {
+  favSymbols:localStorage.getItem("kite_favSymbols")!=undefined ?JSON.parse(localStorage.getItem("kite_favSymbols")):[],
+  favSymbols1:localStorage.getItem("kite_favSymbols1")!=undefined ?JSON.parse(localStorage.getItem("kite_favSymbols1")):[],
+  favSymbols2:localStorage.getItem("kite_favSymbols2")!=undefined ?JSON.parse(localStorage.getItem("kite_favSymbols2")):[],
+  favSymbols3:localStorage.getItem("kite_favSymbols3")!=undefined ?JSON.parse(localStorage.getItem("kite_favSymbols3")):[],
+  kitePerfData:localStorage.getItem("kitePerfData.json")!=undefined ?JSON.parse(localStorage.getItem("kitePerfData.json")):[],
+  kiteBasketOrderData:localStorage.getItem("kiteBasketOrderData.json")!=undefined?JSON.parse(localStorage.getItem("kiteBasketOrderData.json")):[]
+} ;
+JSON.stringify(dataStorage);
+
+localStorage.setItem("kite_favSymbols",JSON.stringify(obj1.favSymbols))
+localStorage.setItem("kite_favSymbols1",JSON.stringify(obj1.favSymbols1))
+localStorage.setItem("kite_favSymbols2",JSON.stringify(obj1.favSymbols2))
+localStorage.setItem("kite_favSymbols3",JSON.stringify(obj1.favSymbols3))
+localStorage.setItem("kitePerfData.json",JSON.stringify(obj1.kitePerfData))
+localStorage.setItem("kiteBasketOrderData.json",JSON.stringify(obj1.kiteBasketOrderData))
+
+
+
+---Trim MIS list  --Fav List
+localStorage.setItem("kiteBasketOrderData.json",JSON.stringify(JSON.parse(localStorage.getItem("kiteBasketOrderData.json")).slice(0,50)))
+localStorage.setItem("kite_favSymbols",JSON.stringify(JSON.parse(localStorage.getItem("kite_favSymbols")).slice(0,100)))
+
+
+---------------------------
+"{\"favSymbols\":[\"ENDURANCE\",\"APLAPOLLO\",\"KPRMILL\",\"TATACOFFEE\",\"CCL\",\"ICIL\",\"WELSPUNIND\",\"APOLLOTRI\",\"HIL\",\"RATNAMANI\",\"MANAPPURAM\",\"JSWENERGY\",\"MAXHEALTH\",\"VTL\",\"TRIDENT\",\"NIFTY PHARMA\",\"SUVENPHAR\",\"BAJAJFINSV\",\"BAJFINANCE\",\"GUJGASLTD\",\"ICICIBANK\",\"HDFCBANK\",\"GNA\",\"VENKEYS\",\"LGBBROSLTD\",\"AUTOAXLES\",\"JKIL\",\"PVR\",\"INOXLEISUR\",\"WABAG\",\"BRITANNIA\",\"NESTLEIND\",\"VIPIND\",\"BORORENEW-BE\",\"KOTAKBANK\",\"LUXIND\",\"MINDAIND\",\"ULTRACEMCO\",\"JKCEMENT\",\"APOLLOHOSP\",\"HAVELLS\",\"ISEC\",\"RELAXO\",\"SIS\",\"BASF\",\"ACE\",\"BALAMINES\",\"FLUOROCHEM\",\"NAVINFLUOR\",\"SBICARD\",\"APEX\",\"ZOMATO\",\"CAPLIPOINT\",\"CDSL-BE\",\"PERSISTENT\",\"AMBUJACEM\",\"BSE\",\"ITC\",\"INFY\",\"TATAMOTORS\",\"RAMCOIND\",\"TINPLATE\",\"JSWSTEEL\",\"HERANBA\",\"COLPAL\",\"COSMOFILMS\",\"LALPATHLAB\",\"FAIRCHEMOR\",\"AVANTIFEED\",\"NITINSPIN\",\"JKLAKSHMI\",\"GODREJPROP\",\"PRINCEPIPE\",\"DIVISLAB\",\"ALKYLAMINE\",\"RAJGLOWIR\",\"NEWGEN-BE\",\"RADICO\",\"COFORGE\",\"IEX\",\"RAJRATAN-BE\",\"ABBOTINDIA\",\"TATASTEEL\",\"INDIAMART\",\"IBREALEST\",\"RELIANCE\",\"APOLLOPIPE\",\"ATUL\",\"WATERBASE\",\"DABUR\",\"MARICO\",\"WIPRO\",\"DALBHARAT\",\"AXISBANK\",\"KEC\",\"LT\",\"ICICIGI\",\"KNRCON\",\"PNCINFRA\",\"GUJGAS\",\"GLAND\",\"BOMDYEING\",\"WHIRLPOOL\",\"VIDHIING\",\"MUTHOOTFIN\",\"KRBL\",\"CARERATING\",\"SHRIRAMCIT\",\"IRCTC\",\"MPHASIS\",\"POLYCAB\",\"ASIANPAINT\",\"PIDILITIND\",\"SONACOMS\",\"TCS\",\"PHOENIXLTD\",\"POLYPLEX\",\"JINDALPOLY\",\"ACC\",\"TCIEXP\",\"CHOLAFIN\",\"HDFC\",\"PIIND\",\"CDSL\",\"UPL\",\"SONATSOFTW\",\"TATAPOWER\",\"MCX\",\"SEQUENT\",\"CAMS\",\"DLF\",\"DCMSHRIRAM\",\"HDFCAMC\",\"MCDOWELL-N\",\"CEATLTD\",\"MOTILALOFS\",\"CROMPTON\",\"JINDALSTEL\",\"NAM-INDIA\",\"JCHAC\",\"TIINDIA\",\"ZYDUSWELL\",\"OBEROIRLTY\",\"TATAELXSI\",\"CYIENT\",\"LTTS\",\"LTI\",\"SUMICHEM\",\"MINDTREE\",\"TIMKEN\",\"ROUTE\",\"HAPPSTMNDS\",\"GOODYEAR\",\"GODFRYPHLP\",\"ABB\",\"JAMNAAUTO\",\"LODHA\",\"SHOPERSTOP\",\"MOTHERSUMI\",\"RITES\",\"IONEXCHANG\",\"SAKUMA\",\"CESC\",\"NOCIL\",\"CAMLINFINE\",\"CANFINHOME\",\"FINCABLES\",\"ABFRL\",\"KALPATPOWR\",\"VMART\",\"OFSS\",\"MARUTI\",\"GRASIM\",\"DMART\",\"REDINGTON\",\"TATACONSUM\",\"IRB\",\"IGL\",\"GMRINFRA\",\"DEEPAKNTR\",\"BHARATFORG\",\"RAIN\",\"BURGERKING\",\"LIKHITHA\",\"NAUKRI\",\"BERGEPAINT\",\"AAVAS\",\"TATAMETALI\",\"SRTRANSFIN\",\"GODREJCP\",\"KANSAINER\",\"GRINDWELL\",\"NESCO\",\"GALAXYSURF\",\"RAJRATAN\",\"SBIN\",\"DELTACORP\",\"JKPAPER\",\"NEWGEN\",\"GUJALKALI\",\"GRAUWEIL\",\"GODREJAGRO\",\"DAAWAT\",\"AARTIIND\",\"NIITLTD\",\"STARPAPER\",\"TATACHEM\",\"VINATIORGA\",\"JBCHEPHARM\",\"MTARTECH\",\"PEL\",\"HIKAL\",\"APOLLOPIPES\",\"SUDARSCHEM\",\"KEI\",\"PRIVISCL\",\"SUBROS\",\"POWERINDIA\",\"UFLEX\",\"BHARATRAS\",\"SRF\",\"JSLHISAR\",\"VLSFINANCE\",\"FSL\",\"AVTNPL\",\"ACRYSIL\",\"LAURUSLABS\",\"ESCORTS\",\"POLYMED\",\"MFSL\",\"THYROCARE\",\"VSTIND\",\"HDFCLIFE\",\"ICICIPRULI\",\"FORTIS\",\"ALLCARGO\",\"FINPIPE\",\"TITAN\",\"INDHOTEL\",\"SIEMENS\",\"UBL\",\"KANCHI\",\"SARDAEN-BE\",\"CRISIL\",\"SHARDACROP\",\"SFL\",\"HUDCO\",\"GARFIBRES\",\"HINDUNILVR\",\"SUPREMEIND\",\"COROMANDEL\",\"ICRA\",\"DIXON\",\"GLOBUSSPR\",\"EPL\",\"UNITDSPR\",\"LICHSGFIN\",\"POLSON\",\"ITI\",\"ASALCBR\",\"ADANIENT\",\"ADANIPORTS\",\"RIIL\",\"SUPRAJIT\",\"SYMPHONY\",\"CASTROLIND\",\"MAITHANALL\",\"JAICORPLTD\",\"WABCOINDIA\",\"INDIACEM\",\"RENUKA\",\"WELCORP\",\"MGL\",\"SHAKTIPUMP\",\"VSSL\",\"JUSTDIAL\",\"BHAGERIA\",\"EIHOTEL\",\"GPIL\",\"MAANALU\",\"TATACOMM\",\"POWERGRID\",\"AUBANK\",\"NBCC\",\"MIDHANI\",\"SARDAEN\",\"SURYAROSNI\",\"DEEPAKFERT\",\"RAJESHEXPO\",\"FDC\",\"ALKEM\",\"CENTURYTEX\",\"DIAMONDYD\",\"JSL\",\"RVNL\",\"ZENSARTECH\",\"HGS\",\"VRLLOG\",\"ASTRAL\",\"HERITGFOOD\",\"MAZDOCK\",\"SUNTV\",\"TEAMLEASE\",\"MMTC\",\"IBULHSGFIN\",\"HATSUN\",\"ZEELEARN\",\"UTIAMC\",\"EASEMYTRIP\",\"VBL\",\"ADANIPOWER\",\"TORNTPOWER\",\"SCI\",\"CHOLAHLDNG\",\"BORORENEW\",\"PRAJIND\",\"RELIGARE\",\"COCHINSHIP\",\"GMBREW\",\"NTPC\",\"RKFORGE\",\"KAJARIACER\"],\"favSymbols1\":[\"IEX\",\"CDSL\",\"LIKHITHA\",\"ABBOTINDIA\",\"BERGEPAINT\",\"RELAXO\",\"ITC\",\"PIDILITIND\",\"GODREJCP\",\"IRCTC\",\"TIINDIA\",\"PRINCEPIPE\",\"ENDURANCE\",\"PGHH\",\"HDFCBANK\",\"POLYCAB\",\"BALKRISIND\",\"BAJAJFINSV\",\"TITAN\",\"DEEPAKNTR\",\"DIVISLAB\",\"ALKYLAMINE\",\"BALAMINES\",\"TATAMOTORS\",\"RADICO\",\"CHOLAFIN\",\"APLAPOLLO\",\"ASALCBR\",\"HNDFDS\",\"ADVENZYMES\",\"ADANIENT\",\"LAURUSLABS\",\"MOTHERSUMI\",\"HAPPSTMNDS\",\"JKCEMENT\",\"DALBHARAT\",\"TASTYBITE\",\"TATAELXSI\",\"PHOENIXLTD\",\"SEQUENT\",\"CAMS\",\"AFFLE\",\"ADANITRANS\",\"MAXHEALTH\",\"ADFFOODS\",\"TATACHEM\",\"KAJARIACER\",\"JBCHEPHARM\",\"SOLARA\",\"AMBER\",\"INDIAMART\",\"DIXON\",\"PIIND\",\"FINPIPE\",\"PAGEIND\",\"ACE\",\"HAVELLS\",\"VOLTAS\",\"GRINDWELL\",\"HIL\",\"CENTURYPLY\",\"AARTIIND\",\"IPCALAB\",\"HCLTECH\",\"TCS\",\"MARUTI\",\"SBICARD\",\"BASF\",\"MRF\",\"MARICO\",\"APOLLOTRI\",\"OAL\",\"TATACONSUM\",\"TATACOMM\",\"IGL\",\"TRIDENT\",\"CROMPTON\",\"BAJAJELEC\",\"SUVENPHAR\",\"ADANIPORTS\",\"IONEXCHANG\",\"BHARTIARTL\",\"WIPRO\",\"CIPLA\",\"DABUR\",\"SIRCA\",\"BHARATFORG\",\"IFBIND\",\"AMARAJABAT\",\"EXIDEIND\",\"TCIEXP\",\"DLF\",\"JSWSTEEL\",\"HEIDELBERG\",\"VEDL\",\"WHIRLPOOL\",\"HONAUT\",\"GMMPFAUDLR\",\"TINPLATE\",\"TATASTEEL\",\"AAVAS\",\"NAVINFLUOR\",\"VTL\",\"APOLLOPIPES\",\"BRITANNIA\",\"VAIBHAVGBL\",\"KANSAINER\",\"MASTEK\",\"NAUKRI\",\"CERA\",\"LTI\",\"PGHL\",\"ESABINDIA\",\"HDFCLIFE\",\"SUMICHEM\",\"MAITHANALL\",\"VBL\",\"GUJGASLTD\",\"NIITLTD\",\"MINDTREE\",\"WOCKPHARMA\",\"CANFINHOME\",\"DOLLAR\",\"RAIN\",\"BHEL\",\"GENUSPOWER\",\"SASKEN\",\"SAREGAMA\",\"SAIL\",\"TIMKEN\",\"AVANTIFEED\",\"APEX\",\"VENKEYS\",\"DELTACORP\",\"BORORENEW\",\"BSOFT\",\"KRBL\",\"LICHSGFIN\",\"NOCIL\",\"UFLEX\",\"LUXIND\",\"PETRONET\",\"FINCABLES\",\"GLENMARK\",\"NESCO\",\"POLYPLEX\",\"RAMCOCEM\",\"3MINDIA\",\"BPCL\",\"CUB\",\"MINDACORP\",\"HLEGLAS\",\"TRENT\",\"SRTRANSFIN\",\"KSCL\",\"ECLERX\",\"AUROPHARMA\",\"POWERINDIA\",\"CHOLAHLDNG\",\"FINEORG\",\"KPRMILL\",\"RUPA\",\"SHRIRAMCIT\",\"AIAENG\",\"GALAXYSURF\",\"CONCOR\",\"CAPLIPOINT\",\"SONATSOFTW\",\"ALEMBICLTD\",\"ALKEM\",\"BATAINDIA\",\"FDC\",\"NEOGEN\",\"SHILPAMED\",\"KEI\",\"CRISIL\",\"BAYERCROP\",\"VINATIORGA\",\"PAUSHAKLTD\",\"VSTIND\",\"GODREJAGRO\",\"IOLCP\",\"MOTILALOFS\",\"UPL\",\"TEAMLEASE\",\"ZYDUSWELL\",\"DEEPAKFERT\",\"CHAMBLFERT\",\"GLAXO\",\"TORNTPHARM\",\"DAAWAT\",\"HERITGFOOD\",\"CCL\",\"PFIZER\",\"AVANTEL\",\"KOTAKBANK\",\"MUTHOOTCAP\",\"NESTLEIND\",\"NIITTECH\",\"SANOFI\",\"COROMANDEL\",\"MCDOWELL-N\",\"ESCORTS\",\"ICICIBANK\",\"SUPREMEIND\",\"JINDALSTEL\",\"RITES\",\"ASIANPAINT\",\"ATUL\",\"BDL\",\"HAL\",\"IRCON\",\"AXISBANK\",\"DHANUKA\",\"DMART\",\"OBEROIRLTY\",\"AUBANK\",\"ATFL\",\"HDFCAMC\",\"ICICIGI\",\"CYIENT\",\"ZENSARTECH\",\"GRANULES\",\"GARFIBRES\",\"SHARDACROP\",\"MUTHOOTFIN\",\"MANAPPURAM\",\"SUBROS\",\"ORIENTREF\",\"NRAIL\",\"WSTCSTPAPR\",\"DIAMINESQ\",\"TTKPRESTIG\",\"BHARATRAS\",\"FAIRCHEM\",\"BANDHANBNK\",\"APOLLOHOSP\",\"GNFC\",\"VMART\",\"ASTEC\",\"METROPOLIS\",\"SUDARSCHEM\",\"HARITASEAT\",\"LINDEINDIA\",\"SYMPHONY\",\"DCMSHRIRAM\",\"LT\",\"CARBORUNIV\",\"ASTRAL\",\"TORNTPOWER\",\"SUNPHARMA\",\"AARTIDRUGS\",\"BIOCON\",\"JUBLFOOD\",\"SRF\",\"VIPIND\",\"HATSUN\",\"ESSELPACK\",\"DMART-BE\",\"NEOGEN-BE\",\"ORIENTELEC\",\"MAHSCOOTER\",\"APOLLOTYRE\",\"krbl\",\"GMBREW\",\"SATIA\",\"GLOBUSSPR\",\"INDIGO\",\"PVR\",\"INOXLEISUR\",\"INDHOTEL\",\"SHOPERSTOP\",\"SUNDRMFAST\",\"vbl\",\"JUBILANT\",\"GODFRYPHLP\",\"igl\",\"MGL\",\"ccl\",\"iolcp\",\"hdfc\",\"TRANSPEK\",\"kei\",\"KEC\",\"ti\",\"MINDAIND\",\"pvr\",\"THYROCARE\",\"srf\",\"atul\",\"BAJFINANCE\",\"itc\",\"MIDHANI\",\"vmart\",\"CONTROLPR\",\"FOSECOIND\",\"SCHAEFFLER\",\"GMM\",\"mgl\",\"SEPERATOR\",\"gmm\",\"MEGH\",\"SEPERATOR\",\"WATERBASE\",\"apex\",\"SEPERATOR\",\"JKPAPER\",\"STARPAPER\",\"ORIENTPPR\",\"RUCHIRA\",\"YASHPAKKA\",\"SEPERATOR\",\"megh\",\"itdc\",\"rain\",\"MENONBE\",\"RICOAUTO\",\"INDOAMIN\",\"TIMETECHNO\",\"PRAKASH\",\"AEGISCHEM\",\"AEGISLOG\",\"SPICEJET\",\"AVTNPL\",\"SHAKTIPUMP\",\"WELCORP\",\"SURYAROSNI\",\"EMMBI\",\"NITINSPIN\"],\"favSymbols2\":[\"RELIANCE\",\"HDFCBANK\",\"hdfc\",\"HDFC\",\"KOTAKBANK\",\"AXISBANK\",\"ICICIBANK\",\"CUB\",\"SBIN\",\"DCBBANK\",\"RBLBANK\",\"BANDHANBNK\",\"AUBANK\",\"INDUSINDBK\",\"YESBANK\",\"FEDERALBNK\",\"PNB\",\"BANKBARODA\",\"UNIONBANK\",\"INDIANB\",\"KARURVYSYA\",\"SRTRANSFIN\",\"SHRIRAMCIT\",\"BAJFINANCE\",\"BAJAJFINSV\",\"BAJAJHLDNG\",\"CHOLAFIN\",\"MUTHOOTFIN\",\"MANAPPURAM\",\"CREDITACC\",\"CHOLAHLDNG\",\"SBICARD\",\"MFSL\",\"MASFIN\",\"MUTHOOTCAP\",\"CHEVIOT\",\"EQUITAS\",\"INDOSTAR\",\"MAGMA\",\"CGCL\",\"IIFL\",\"IBULHSGFIN\",\"IBVENTURES\",\"LICHSGFIN\",\"PNBHOUSING\",\"CANFINHOME\",\"AAVAS\",\"HUDCO\",\"HOMEFIRST\",\"REPCOHOME\",\"PEL\",\"HDFCLIFE\",\"SBILIFE\",\"ICICIPRULI\",\"ICICIGI\",\"GICRE\",\"SEPERATOR\",\"SEPERATOR\",\"HDFCAMC\",\"EDELWEISS\",\"IIFLWAM\",\"UTIAMC\",\"CDSL\",\"MCX\",\"NAM-INDIA\",\"IIFLSEC\",\"ISEC\",\"GEOJITFSL\",\"JMFINANCIL\",\"MOTILALOFS\",\"ANGELBRKG\",\"SEPERATOR\",\"SEPERATOR\",\"CRISIL\",\"ICRA\",\"CARERATING\",\"SEPERATOR\",\"SEPERATOR\",\"HINDUNILVR\",\"NESTLEIND\",\"ITC\",\"BRITANNIA\",\"DABUR\",\"MARICO\",\"GODREJCP\",\"TITAN\",\"COLPAL\",\"TATACONSUM\",\"JUBLFOOD\",\"PIDILITIND\",\"ASIANPAINT\",\"DMART-BE\",\"BERGEPAINT\",\"KANSAINER\",\"AKZOINDIA\",\"SIRCA\",\"INDIGOPNTS\",\"VSTIND\",\"ZYDUSWELL\",\"INDIAMART\",\"vmart\",\"VMART\",\"GSKCONS\",\"3MINDIA\",\"ASTRAL\",\"GILLETTE\",\"pvr\",\"itc\",\"GODFRYPHLP\",\"ntpc\",\"RELAXO\",\"BATAINDIA\",\"AIAENG\",\"TTKPRESTIG\",\"SEPERATOR\",\"SEPERATOR\",\"HAVELLS\",\"SIEMENS\",\"CROMPTON\",\"BHEL\",\"VGUARD\",\"ORIENTELEC\",\"ABB\",\"POWERINDIA\",\"VOLTAS\",\"HONAUT\",\"BEL\",\"DIXON\",\"AMBER\",\"BLUESTARCO\",\"SYMPHONY\",\"BAJAJELEC\",\"JCHAC\",\"WHIRLPOOL\",\"SEPERATOR\",\"SEPERATOR\",\"DLF\",\"LODHA\",\"GODREJPROP\",\"OBEROIRLTY\",\"IBREALEST\",\"IBULISL\",\"PHOENIXLTD\",\"BRIGADE\",\"PRESTIGE\",\"SUNTECK\",\"SOBHA\",\"ANANTRAJ\",\"NESCO\",\"NCC\",\"SEPERATOR\",\"SEPERATOR\",\"ADANIGREEN\",\"NTPC\",\"POWERGRID\",\"TATAPOWER\",\"JSWENERGY\",\"TORNTPOWER\",\"KALPATPOWR\",\"BGRENERGY\",\"NHPC\",\"CESC\",\"KEC\",\"ADANIPOWER\",\"SEPERATOR\",\"SEPERATOR\",\"ADANIENT\",\"ATGL\",\"ADANITRANS\",\"ADANIPORTS\",\"ADANITRANS-BE\",\"ADANIPOWER-BE\",\"ADANIGREEN-BE\",\"ATGL-BE\",\"SEPERATOR\",\"SEPERATOR\",\"LT\",\"RVNL\",\"KNRCON\",\"RITES\",\"GMRINFRA\",\"ACE\",\"ASHOKA\",\"IRB\",\"DBL\",\"IRCON\",\"RIIL\",\"RELINFRA\",\"PNCINFRA\",\"SEPERATOR\",\"tcs\",\"SEPERATOR\",\"TCS\",\"INFY\",\"NIITTECH\",\"HCLTECH\",\"WIPRO\",\"TECHM\",\"PERSISTENT\",\"MINDTREE\",\"TATAELXSI\",\"LTI\",\"OFSS\",\"MPHASIS\",\"COFORGE\",\"LTTS\",\"BSOFT\",\"ROUTE\",\"CYIENT\",\"SONATSOFTW\",\"NEWGEN\",\"FSL\",\"NIITLTD\",\"MASTEK\",\"TAKE\",\"SASKEN\",\"HAPPSTMNDS\",\"NUCLEUS\",\"MAJESCO\",\"SUBEXLTD\",\"TANLA\",\"HEXAWARE\",\"iti\",\"INTELLECT\",\"ZENSARTECH\",\"KPITTECH\",\"DATAMATICS\",\"ONWARDTEC\",\"ZENTEC\",\"AFFLE\",\"REDINGTON\",\"ITI\",\"SEPERATOR\",\"mrf\",\"SEPERATOR\",\"FRETAIL\",\"FLFL\",\"ABFRL\",\"SHOPERSTOP\",\"SEPERATOR\",\"SEPERATOR\",\"TAJGVK\",\"LEMONTREE\",\"INDHOTEL\",\"ORIENTHOT\",\"ROHLTD\",\"CHALET\",\"KAMATHOTEL\",\"EIHOTEL\",\"KAMATHOTEL-BE\",\"MHRIL\",\"SEPERATOR\",\"SEPERATOR\",\"GMM\",\"WHIRLPOOL\",\"SEPERATOR\",\"SEPERATOR\",\"AARTIIND\",\"DEEPAKNTR\",\"NAVINFLUOR\",\"ALKYLAMINE\",\"BALAMINES\",\"SRF\",\"ATUL\",\"JBCHEPHARM\",\"GALAXYSURF\",\"VINATIORGA\",\"FINEORG\",\"VALIANTORG\",\"TATACHEM\",\"BASF\",\"BHARATRAS\",\"IOLCP\",\"TRANSPEK\",\"LXCHEM\",\"ALUFLUOR\",\"NOCIL\",\"SHIVALIK\",\"GUJALKALI\",\"NEOGEN\",\"BEPL\",\"SUDARSCHEM\",\"NEOGEN-BE\",\"FAIRCHEM\",\"BAYERCROP\",\"DIAMINESQ\",\"CAMLINFINE\",\"CASTROLIND\",\"OAL\",\"FCL\",\"FLUOROCHEM\",\"GULFOILLUB\",\"HSCL\",\"MEGH\",\"UPL\",\"HERANBA\",\"PIIND\",\"SUMICHEM\",\"COROMANDEL\",\"NFL\",\"DEEPAKFERT\",\"CHAMBLFERT\",\"SHARDACROP\",\"GNFC\",\"GRINDWELL\",\"SEPERATOR\",\"SEPERATOR\",\"LUPIN\",\"SUNPHARMA\",\"CIPLA\",\"AUROPHARMA\",\"TORNTPHARM\",\"DIVISLAB\",\"ABBOTINDIA\",\"SYNGENE\",\"SANOFI\",\"SUVENPHAR\",\"SEQUENT\",\"LAURUSLABS\",\"SOLARA\",\"PGHH\",\"PGHL\",\"POLYMED\",\"ROSSARI\",\"JUBILANT\",\"WOCKPHARMA\",\"CADILAHC\",\"IPCALAB\",\"NATCOPHARM\",\"PFIZER\",\"AARTIDRUGS\",\"SHILPAMED\",\"BIOCON\",\"ALKEM\",\"GLENMARK\",\"GLAND\",\"AJANTPHARM\",\"NEULANDLAB\",\"STAR\",\"GLAXO\",\"ASTRAZEN\",\"HESTERBIO\",\"GRANULES\",\"APOLLOHOSP\",\"FORTIS\",\"MAXHEALTH\",\"NH\",\"METROPOLIS\",\"LALPATHLAB\",\"FDC\",\"KOPRAN\",\"ASTEC\",\"MARKSANS\",\"DRREDDY\",\"ALEMBICLTD\",\"NECLIFE\",\"THYROCARE\",\"CAPLIPOINT\",\"MOREPENLAB\",\"SEPERATOR\",\"SEPERATOR\",\"RADICO\",\"GLOBUSSPR\",\"MCDOWELL-N\",\"UBL\",\"GMBREW\",\"ASALCBR\",\"SEPERATOR\",\"SEPERATOR\",\"KEI\",\"POLYCAB\",\"FINCABLES\",\"PRINCEPIPE\",\"ASTRAL\",\"FINPIPE\",\"SUPREMEIND\",\"NILKAMAL\",\"APLAPOLLO\",\"APOLLOTRI\",\"WELCORP\",\"RAJRATAN-BE\",\"SHYAMMETL\",\"RATNAMANI\",\"RAJRATAN\",\"UNIVCABLES\",\"CORDSCABLE\",\"MAHSEAMLES\",\"SEPERATOR\",\"SEPERATOR\",\"VEDL\",\"TATASTEEL\",\"JSWSTEEL\",\"JINDALSTEL\",\"HINDALCO\",\"TATAMETALI\",\"SAIL\",\"TINPLATE\",\"SUNFLAG\",\"JAICORPLTD\",\"HINDCOPPER\",\"KIRLFER\",\"HINDZINC\",\"COALINDIA\",\"TATASTLLP\",\"TATASTLBSL\",\"JSL\",\"JSLHISAR\",\"JINDALSAW\",\"NMDC\",\"MAITHANALL\",\"NELCO-BE\",\"MIDHANI\",\"VSSL\",\"MAANALU\",\"SARDAEN\",\"GPIL\",\"MOIL\",\"SEPERATOR\",\"SEPERATOR\",\"ULTRACEMCO\",\"JKCEMENT\",\"DALBHARAT\",\"RAMCOCEM\",\"AMBUJACEM\",\"HIL\",\"EVERESTIND\",\"ACC\",\"GRASIM\",\"BIRLACORPN\",\"INDIACEM\",\"HEIDELBERG\",\"ORIENTCEM\",\"SHREECEM\",\"JKLAKSHMI\",\"RAMCOIND\",\"ITDCEM\",\"SAGCEM\",\"STARCEMENT\",\"VISAKAIND\",\"KCP\",\"SEPERATOR\",\"SEPERATOR\",\"MARUTI\",\"BAJAJ-AUTO\",\"TATAMOTORS\",\"TVSMOTOR\",\"M&M\",\"HEROMOTOCO\",\"ASHOKLEY\",\"FORCEMOT\",\"EICHERMOT\",\"JAMNAAUTO\",\"ESCORTS\",\"TIINDIA\",\"MOTHERSUMI\",\"RKFORGE\",\"BHARATFORG\",\"MMFL\",\"MINDAIND\",\"ENDURANCE\",\"SUPRAJIT\",\"LGBBROSLTD\",\"SUNCLAYLTD\",\"GNA\",\"SUBROS\",\"LUMAXTECH\",\"ATULAUTO\",\"FIEMIND\",\"HARITASEAT\",\"TIMKEN\",\"NRBBEARING\",\"AUTOAXLES\",\"WABCOINDIA\",\"AIAENG\",\"apollo\",\"BOSCHLTD\",\"AMARAJABAT\",\"LUMAXIND\",\"EXIDEIND\",\"JAYBARMARU\",\"gna\",\"INDNIPPON\",\"CEATLTD\",\"JKTYRE\",\"APOLLOTYRE\",\"MRF\",\"BALKRISIND\",\"GOODYEAR\",\"MENONBE\",\"SEPERATOR\",\"SEPERATOR\",\"HINDPETRO\",\"ONGC\",\"BPCL\",\"IOC\",\"SEPERATOR\",\"SEPERATOR\",\"AVANTIFEED\",\"WATERBASE\",\"APEX\",\"VENKEYS\",\"ADFFOODS\",\"HERITGFOOD\",\"HATSUN\",\"VBL\",\"KRBL\",\"TASTYBITE\",\"DAAWAT\",\"SEPERATOR\",\"SEPERATOR\",\"JKPAPER\",\"STARPAPER\",\"WSTCSTPAPR\",\"NRAIL\",\"ORIENTPPR\",\"ANDHRAPAP\",\"YASHPAKKA\",\"SATIA\",\"TNPL\",\"RUCHIRA\",\"SEPERATOR\",\"SEPERATOR\",\"PAGEIND\",\"KPRMILL\",\"TRIDENT\",\"LUXIND\",\"SFL\",\"RUPA\",\"DOLLAR\",\"RAYMOND\",\"TCNSBRANDS\",\"VTL\",\"CENTURYTEX\",\"BOMDYEING\",\"FILATEX\",\"GOKAKTEX\",\"KITEX\",\"ICIL\",\"ARVINDFASN\",\"CANTABIL\",\"NITINSPIN\",\"CENTENKA\",\"SEPERATOR\",\"SEPERATOR\",\"BLUEDART\",\"CONCOR\",\"AEGISLOG\",\"TCIEXP\",\"GATI\",\"TCI\",\"VRLLOG\",\"MAHLOG\",\"ALLCARGO\",\"COCHINSHIP\",\"SCI\",\"SEPERATOR\",\"SEPERATOR\",\"PRAJIND\",\"EIDPARRY\",\"DALMIASUG\",\"PRAJIND-BE\",\"BALRAMCHIN\",\"RENUKA\",\"TRIVENI\",\"KMSUGAR\",\"ANDHRSUGAR\",\"AVADHSUGAR\",\"BANARISUG\",\"UTTAMSUGAR\",\"DHAMPURSUG\",\"DWARKESH\",\"SEPERATOR\",\"SEPERATOR\",\"BHARTIARTL\",\"IDEA\",\"TATACOMM\",\"SEPERATOR\",\"SEPERATOR\",\"TV18BRDCST\",\"SUNTV\",\"PVR\",\"INOXLEISUR\",\"TVTODAY\",\"HATHWAY\",\"JAGRAN\",\"NETWORK18\",\"DBCORP\",\"ZEEL\"],\"favSymbols3\":[\"nifty it\",\"SEPERATOR\",\"NIITTECH\",\"SEPERATOR\",\"SEPERATOR\",\"DMART-BE\",\"vmart\",\"GSKCONS\",\"pvr\",\"itc\",\"ntpc\",\"BANKNIFTY20MAY19000CE\"],\"kitePerfData\":{},\"kiteBasketOrderData\":[\"CCL\",\"TATACOFFEE\",\"NIITLTD\",\"LALPATHLAB\",\"APOLLOTRI\",\"GLENMARK\",\"CIPLA\",\"LUPIN\",\"DIVISLAB\",\"SUNPHARMA\",\"DRREDDY\",\"TRENT\",\"WELSPUNIND\",\"GABRIEL\",\"ALEMBICLTD\",\"RAMCOCEM\",\"KABRAEXTRU\",\"ITDC\",\"CENTURYTEX\",\"LAURUSLABS\",\"IPCALAB\",\"RAMCOIND\",\"IBREALEST\",\"SHARDACROP\",\"AUROPHARMA\",\"CAPLIPOINT\",\"MCX\",\"ABFRL\",\"ZOMATO\",\"TTKPRESTIG\",\"RATNAMANI\",\"ICICIBANK\",\"HDFCBANK\",\"TATASTLBSL\",\"SCHAEFFLER\",\"MINDACORP\",\"TIMKEN\",\"ENDURANCE\",\"WELCORP\",\"SUBROS\",\"NELCO\",\"JKPAPER\",\"JINDALSAW\",\"JINDALSTEL\",\"DAAWAT\",\"KRBL\",\"RAIN\",\"TATASTEEL\",\"RUPA\",\"HIL\",\"BASF\",\"SAIL\",\"TATAMOTORS\",\"ATULAUTO\",\"WABAG\",\"PVR\",\"INOXLEISUR\",\"MAXHEALTH\",\"SBIN\",\"HINDALCO\",\"JSLHISAR\",\"JSL\",\"NATIONALUM\",\"SUNDRMFAST\",\"DLF\",\"ISEC\",\"TINPLATE\",\"GUJALKALI\",\"KNRCON\",\"FORTIS\",\"ZENSARTECH\",\"JKCEMENT\",\"KOTAKBANK\",\"VIPIND\",\"BORORENEW-BE\",\"KPITTECH\",\"MFSL\",\"ALLCARGO\",\"GNA\",\"SIS\",\"FLUOROCHEM\",\"NAVINFLUOR\",\"METROPOLIS\",\"PHILIPCARB\",\"CDSL-BE\",\"COROMANDEL\",\"PERSISTENT\",\"BAJAJELEC\",\"MAITHANALL\",\"HINDCOPPER\",\"SUNTV\",\"POWERINDIA\",\"WHIRLPOOL\",\"TATAMETALI\",\"BSOFT\",\"VALIANTORG\",\"APOLLOHOSP\",\"AJANTPHARM\",\"CANFINHOME\",\"BRIGADE\",\"NCC\",\"POLYMED\",\"SBICARD\",\"GREAVESCOT\",\"AUBANK\",\"MAHINDCIE\",\"OFSS\",\"IOLCP\",\"FINEORG\",\"APEX\",\"WATERBASE\",\"AVANTIFEED\",\"DALBHARAT\",\"PHOENIXLTD\",\"NESCO\",\"PRESTIGE\",\"SUNTECK\",\"SEQUENT\",\"IBULHSGFIN\",\"PRINCEPIPE\",\"CHAMBLFERT\",\"ZEELEARN\",\"BALAMINES\",\"SHRIRAMCIT\",\"IEX\",\"RAJGLOWIR\",\"MAHSCOOTER\",\"SUVENPHAR\",\"ITC\",\"RADICO\",\"SYNGENE\",\"MPHASIS\",\"MCDOWELL-N\",\"UNITDSPR\",\"ATUL\",\"FEDERALBNK\",\"DELTACORP\",\"FINCABLES\",\"KEI\",\"APTECHT\",\"MAHLOG\",\"CSBBANK\",\"RITES\",\"UTIAMC\",\"SOBHA\",\"OBEROIRLTY\",\"ACE\",\"CHOLAFIN\",\"MIDHANI\",\"VENKEYS\",\"INDIAMART\",\"JSWSTEEL\",\"WIPRO\",\"BOMDYEING\",\"LT\",\"KEC\",\"BHARTIARTL\",\"IRB\",\"SUNFLAG\",\"VSSL\",\"HEIDELBERG\",\"FDC\",\"MANAPPURAM\",\"MOTILALOFS\",\"VOLTAS\",\"HAVELLS\",\"GLAND\",\"MASTEK\",\"SYMPHONY\",\"KANSAINER\",\"CARERATING\",\"ULTRACEMCO\",\"POLYCAB\",\"PEL\",\"PIDILITIND\",\"JKLAKSHMI\",\"BAJFINANCE\",\"BERGEPAINT\",\"ATFL\",\"GRASIM\",\"MINDTREE\",\"AARTIIND\",\"POLYPLEX\",\"IIFLWAM\",\"IIFLSEC\",\"HDFCAMC\",\"AAVAS\",\"DEEPAKNTR\",\"CROMPTON\",\"TATAPOWER\",\"SHILPAMED\",\"IGL\",\"IRCTC\",\"HCLTECH\",\"HDFC\",\"CRISIL\",\"PIIND\",\"GILLETTE\",\"CAMS\",\"UPL\",\"JCHAC\",\"ROSSARI\",\"JAICORPLTD\",\"ICRA\",\"BALRAMCHIN\",\"CDSL\",\"ASALCBR\",\"BECTORFOOD\",\"SONATSOFTW\",\"ORIENTELEC\",\"CEATLTD\",\"GEOJITFSL\",\"JMFINANCIL\",\"KALPATPOWR\",\"EDELWEISS\",\"LAXMIMACH\",\"NAM-INDIA\",\"TCIEXP\",\"ALKEM\",\"ITI\",\"LTI\",\"GODREJPROP\",\"ZYDUSWELL\",\"JSWENERGY\",\"HINDZINC\",\"TATAELXSI\",\"SPIC\",\"RALLIS\",\"FSL\",\"TECHM\",\"LTTS\",\"JUSTDIAL\",\"TCS\",\"LICHSGFIN\",\"ROUTE\",\"JKTYRE\",\"APOLLOTYRE\",\"GODFRYPHLP\",\"GOODYEAR\",\"COFORGE\",\"BODALCHEM\",\"GRINDWELL\",\"MAHSEAMLES\",\"CESC\",\"SUPRAJIT\",\"SUMICHEM\",\"SHOPERSTOP\",\"GOKEX\",\"MRF\",\"JAMNAAUTO\",\"MOTHERSUMI\",\"TIINDIA\",\"ABB\",\"IONEXCHANG\",\"SAKUMA\",\"NOCIL\",\"CAMLINFINE\",\"MHRIL\",\"BSE\",\"SHAKTIPUMP\",\"SFL\",\"DALMIASUG\",\"ADANIENT\",\"ADANIPORTS\",\"REDINGTON\",\"VMART\",\"CHALET\",\"ADVENZYMES\",\"NTPC\",\"POWERGRID\",\"BIRLACORPN\",\"TATASTLLP-BE\",\"VLSFINANCE\",\"PAGEIND\",\"VTL\",\"TATACHEM\",\"OMAXE\",\"UFLEX\",\"GMRINFRA\",\"MARUTI\",\"GRANULES\",\"BAJAJFINSV\",\"BURGERKING\",\"BHARATFORG\",\"VRLLOG\",\"INDUSINDBK\",\"WESTLIFE\",\"UJJIVAN\",\"HONAUT\",\"BANDHANBNK\",\"ZEEL\",\"NAUKRI\",\"LEMONTREE\",\"SRTRANSFIN\",\"RBLBANK\",\"ANGELBRKG\",\"EQUITAS\",\"NIFTY METAL\",\"STARPAPER\",\"TNPL\",\"ANDHRAPAP\",\"NRAIL\",\"INDHOTEL\",\"GMMPFAUDLR\",\"TV18BRDCST\",\"DYNPRO\",\"NETWORK18\",\"BAJAJCON\",\"GALAXYSURF\",\"LINDEINDIA\",\"FORCEMOT\",\"ATGL-BE\",\"WSTCSTPAPR\",\"GICRE\",\"HAL\",\"GODREJAGRO\",\"SPICEJET\",\"INDIGO\",\"HFCL\",\"APOLLOPIPE\",\"PNCINFRA\",\"MUTHOOTFIN\",\"HERITGFOOD\",\"KPRMILL\",\"EIHOTEL\",\"TAJGVK\",\"ZENTEC\",\"BOSCHLTD\",\"CASTROLIND\",\"MTARTECH\",\"DABUR\",\"MARICO\",\"NEWGEN\",\"RELAXO\",\"GRAUWEIL\",\"JBCHEPHARM\",\"TAKE\",\"VINATIORGA\",\"OAL\",\"TORNTPHARM\",\"SUDARSCHEM\",\"RKFORGE\",\"APOLLOPIPES\",\"RVNL\",\"BHARATRAS\",\"ESCORTS\",\"NIACL\",\"MGL\",\"EIDPARRY\",\"BANKBARODA\",\"PNB\",\"VSTIND\",\"RELIANCE\",\"CUB\",\"THYROCARE\",\"ASHOKLEY\",\"FINPIPE\",\"HESTERBIO\",\"GUJGAS\",\"UBL\",\"BALMLAWRIE\",\"GODREJIND\",\"ADANITRANS-BE\",\"HDFCLIFE\",\"ICICIGI\",\"TATACONSUM\",\"IRCON\",\"GARFIBRES\",\"HINDUNILVR\",\"SUPREMEIND\",\"NMDC\",\"CANBK\",\"KARURVYSYA\",\"INDIANB\",\"BANKINDIA\",\"UNIONBANK\",\"MAHABANK\",\"HINDOILEXP\",\"INDIACEM\",\"DCMSHRIRAM\",\"MASFIN\",\"CYIENT\",\"DIXON\",\"ECLERX-BE\",\"EPL\",\"KSCL\",\"VEDL\",\"NESTLEIND\",\"TCNSBRANDS\",\"BEML\",\"SOLARINDS\",\"GATI\",\"GNFC\",\"LINCOPH\",\"NFL\",\"RCF\",\"MMTC\",\"WABCOINDIA\",\"MINDAIND\",\"RELINFRA\",\"CREDITACC\",\"VINYLINDIA\",\"HATSUN\",\"GUJGASLTD\",\"GLOBUSSPR\",\"VISAKAIND\",\"RAJESHEXPO\",\"TITAN\",\"DBCORP\",\"TVTODAY\",\"NBCC\",\"LUXIND\",\"IFBIND\",\"COCHINSHIP\",\"DEEPAKFERT\",\"JAGRAN\",\"CADILAHC\",\"RAILTEL\",\"ASTRAL\",\"MAZDOCK\",\"ADANIPOWER\",\"TEAMLEASE\",\"TORNTPOWER\",\"COSMOFILMS\",\"SCI\",\"BEPL\",\"CHOLAHLDNG\"]}"
+
+
+
+Requestly App:
+
+Access-Control-Allow-Origin: http://yourdomain.com
+Access-Control-Allow-Methods: GET, POST
+Access-Control-Allow-Headers: X-Custom-Header
+
+[
+  {
+    "creationDate": 1588339376660,
+    "description": "For kite request",
+    "groupId": "",
+    "id": "Headers_1588339376660",
+    "isSample": false,
+    "name": "kite | screener",
+    "objectType": "rule",
+    "pairs": [
+      {
+        "header": "Access-Control-Allow-Origin",
+        "source": {
+          "filters": {},
+          "key": "host",
+          "operator": "Contains",
+          "value": "localhost"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "*"
+      },
+      {
+        "header": "Access-Control-Allow-Origin",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "*"
+      },
+      {
+        "header": "Access-Control-Allow-Methods",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "GET, PUT, POST, DELETE, HEAD, OPTIONS"
+      },
+      {
+        "header": "Access-Control-Allow-Headers",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "x-kite-version ,x-csrftoken,authorization ,Origin, X-Requested-With, Content-Type, Accept"
+      },
+      {
+        "header": "X-Frame-Options",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "screener"
+        },
+        "target": "Response",
+        "type": "Remove",
+        "value": ""
+      },
+      {
+        "header": "X-Frame-Options",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Remove",
+        "value": ""
+      },
+      {
+        "header": "Referer",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Request",
+        "type": "Modify",
+        "value": "https://kite.zerodha.com"
+      },
+      {
+        "header": "Origin",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Request",
+        "type": "Modify",
+        "value": "https://kite.zerodha.com"
+      },
+      {
+        "header": "X-Frame-Options",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "nseindia"
+        },
+        "target": "Response",
+        "type": "Remove",
+        "value": ""
+      }
+    ],
+    "ruleType": "Headers",
+    "status": "Active"
+  }
+]
+
+
+TODO  *******************************************************
+
+
+HIglight yello if qty > 0
+sort order for change
+show profit on info page
+ATH volume in ifno page
+
+add cement secortr
+
+Sqoff option for all position , option  for only selected position
+
+Holding portfolio like MIS and have option for cover position and sqoff position. and sorting
+
+Option to cover CNC position. for selected row all at once
+
+Option to covert CNC position to MIS [ sell holding and buy MIS ] of given QTY
+
+
+>>>>
+
+Show result from resultt json published from crawler [today past , fut] // option to disabel it from view enable it onced clicked. [higlite if true ]
+ENABLE DISABLE MIS SCRIPTS TABLE [SHOW ONLY HWN CHECKED FROM SEC BUTOON]
+
+Notify when all Position are filled [ count of renaming position ] handle button
+UPER CIRCUIT LOWER CIRCUT NOTIFICATION
+TRU TO USE GRAH CAPTURE IMAGE FUNCTION
+recover from low notification
+Lower circuit , Uper circuit notification
+
+
+USE react icons in toolbar
+Higlight holding stoks in MIS
+option to skip holding position
+
+Differt column for total value in MIS and sort based on present in holding,
+
+open info on input click og HOLD and MIS
+
+Use firebase 
+use text editor
+
+Order book / FUOP price in feed subscriber & kitewatch
+
+alerts 
+screener
+
+
+
+Import stocks list
+Trigger on 2% change
+
+Trigger for circuits
+
+
+
+Complete sector view in one page
+Seprate finance insurance and banks
+
+
+Demo trade view for options
+
+
+calculator in page
+sort CNC by sell and buy in position
+update mtm from socket LTP 
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------Trading view add symbol
+
+
+var http = new XMLHttpRequest();
+var url = 'https://in.tradingview.com/api/v1/symbols_list/custom/43619550/append/';
+var params = '["AMEX:EMGF","NSE:NIFTY","NSE:BANKNIFTY","NSE:CNXIT","NSE:CNXFMCG","NSE:CNXAUTO","NSE:CNXPHARMA","NSE:CNXREALTY","NSE:CNXENERGY","NSE:CNXMEDIA","NSE:NIFTYMIDCAP50","NSE:CNXMETAL","NSE:CNXFINANCE","NSE:CNXCOMMODITIES","NSE:NIFTYPVTBANK","NSE:CNXMNC","NSE:CNXINFRA","NSE:GOLDBEES","NSE:NIFTYJR","NSE:NIFTYSMLCAP50","NSE:CNXSMALLCAP","NSE:CNXMIDCAP","AMEX:EEMS","FOREXCOM:US2000"]';
+http.open('POST', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
+
+----------------------------------
+
+
+
+--------------------------Poluplate honding stocks to Tradingview holding list
+ob1=JSON.parse('{"status":"success","data":}');
+var list = new Array()
+for(var i=0;i<ob1.data.length;i++)
+{
+list.push(ob1.data[0].tradingsymbol)
+}
+JSON.stringify(list)
+
+
+
+
+
+
+var http = new XMLHttpRequest();
+var url = 'https://in.tradingview.com/api/v1/symbols_list/custom/49478991/append/';
+var params = '["AAVAS", "ADANIENT", "ADANIPORTS", "ADANITRANS", "APLAPOLLO", "APOLLOPIPES", "APOLLOTRI", "ASALCBR", "ASIANPAINT", "ATGL", "ATUL", "BALKRISIND", "BORORENEW", "BRITANNIA", "CANFINHOME", "CDSL", "CEATLTD", "CHOLAFIN", "COFORGE", "DAAWAT", "DABUR", "DALBHARAT", "DEEPAKNTR", "DELTACORP", "DIVISLAB", "DYNPRO", "ENDURANCE", "FINPIPE", "GALAXYSURF", "GARFIBRES", "GNA", "GODFRYPHLP", "GUJGASLTD", "HAVELLS", "HDFCBANK", "HINDUNILVR", "ICICIGI", "IEX", "IGL", "INDIAMART", "INOXLEISUR", "IONEXCHANG", "IRCTC", "ITC", "JAMNAAUTO", "JSWSTEEL", "KEC", "KNRCON", "KOTAKBANK", "KPRMILL", "KRBL", "LAURUSLABS", "LIKHITHA", "LIQUIDBEES", "LTI", "MARICO", "MAXHEALTH", "MOTHERSUMI", "MUTHOOTFIN", "NAVINFLUOR", "NESTLEIND", "PIDILITIND", "POLYCAB", "POLYMED", "PRINCEPIPE", "PVR", "RADICO", "RAJRATAN", "RITES", "SEQUENT", "SHARDACROP", "SHRIRAMCIT", "SIS", "SRF", "SUBROS", "SUPREMEIND", "SURYAROSNI", "SUVENPHAR", "TATACONSUM", "TATAELXSI", "TATAMOTORS", "TCIEXP", "TIINDIA", "TITAN", "UFLEX", "UPL", "VBL", "VEDL", "VENKEYS", "VIDHIING", "VIPIND", "VSTIND", "WHIRLPOOL"]';
+http.open('POST', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
+
+
+----------------------------------
+
+
+
+
+
+
+
+
+
+--------------------------------------- ALERT FOR KIET 
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const rule = urlParams.get('rule');
+const rule_name = urlParams.get('rule_name');
+
+const csrftoken= document.cookie
+        .split( ';' )
+        .map( pair => pair.split( '=' ) )
+        .filter( pair => pair.length == 2 && pair[0].trim()=='sentinel_csrftoken' )
+        .map( pair => [ pair[0].trim(), pair[1].trim() ] )
+        .filter( pair => pair[0] != 'expires' )[0][1].trim()
+    ;
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", 'https://sentinel.zerodha.com/api/triggers/new/advanced', true);
+
+xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xhr.setRequestHeader("accept", "application/json, text/plain, */*");
+xhr.setRequestHeader("x-csrftoken", csrftoken);
+xhr.setRequestHeader("content-transfer-encoding", "base64");
+
+xhr.onreadystatechange = function() {
+if(xhr.readyState === XMLHttpRequest.DONE) {
+    var status = xhr.status;
+    if (status === 0 || (status >= 200 && status < 400)) {
+      // The request has been completed successfully
+      alert(xhr.responseText);
+    } else {
+      alert(JSON.parse(xhr.responseText).message);
+    }
+  }
+
+}
+
+const payload={rule_name:rule_name,rule_string:rule,basket_id:null}
+xhr.send(JSON.stringify(payload));
+
+
+
+----------------------------------------------------
+
+
+
+
+
+
+
+
+
+On New high display Coloring in 15 min and index
+better screener and notification 
+Ce/pE adding to Op screener
+
+
+
+
+CALL SPREAD FROM ATM
+ADD NITY STRIKE TO 50
+
+
+---
+ATM SG PRICE CHANGE UPDATE
+RS & SP NOTIFICATIION

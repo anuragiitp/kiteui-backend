@@ -1,0 +1,112 @@
+[
+  {
+    "creationDate": 1588339376660,
+    "description": "For kite request",
+    "groupId": "",
+    "id": "Headers_1588339376660",
+    "isFavourite": true,
+    "isSample": false,
+    "name": "kite | screener",
+    "objectType": "rule",
+    "pairs": [
+      {
+        "header": "Access-Control-Allow-Origin",
+        "source": {
+          "filters": {},
+          "key": "host",
+          "operator": "Contains",
+          "value": "localhost"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "*"
+      },
+      {
+        "header": "Access-Control-Allow-Origin",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "*"
+      },
+      {
+        "header": "Access-Control-Allow-Methods",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "GET, PUT, POST, DELETE, HEAD, OPTIONS"
+      },
+      {
+        "header": "Access-Control-Allow-Headers",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "x-kite-version , authorization ,Origin, X-Requested-With, Content-Type, Accept"
+      },
+      {
+        "header": "X-Frame-Options",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "screener"
+        },
+        "target": "Response",
+        "type": "Remove",
+        "value": ""
+      },
+      {
+        "header": "X-Frame-Options",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Response",
+        "type": "Remove",
+        "value": ""
+      },
+      {
+        "header": "Referer",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Request",
+        "type": "Modify",
+        "value": "https://kite.zerodha.com"
+      },
+      {
+        "header": "Origin",
+        "source": {
+          "filters": {},
+          "key": "Url",
+          "operator": "Contains",
+          "value": "kite"
+        },
+        "target": "Request",
+        "type": "Modify",
+        "value": "https://kite.zerodha.com"
+      }
+    ],
+    "ruleType": "Headers",
+    "status": "Active"
+  }
+]
